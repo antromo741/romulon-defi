@@ -12,11 +12,11 @@ contract Token is ERC20 {
     minter = msg.sender;
   }
 
-  function passMinterRole(address dbank) public returns(bool) {
+  function passMinterRole(address romBank) public returns(bool) {
     require(msg.sender==minter, 'Error, only owner can change pass minter role');
-    minter = dbank;
+    minter = romBank;
 
-    emit MinterChanged(msg.sender, dbank);
+    emit MinterChanged(msg.sender, romBank);
     return true;
   }
 
