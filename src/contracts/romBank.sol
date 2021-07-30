@@ -7,6 +7,9 @@ contract romBank {
   //state variable
   Token private token;
  
+  mapping(address => uint) public etherBalanceOf;
+
+
   //token in constructor is local variable
   constructor(Token _token) public {
    token = _token;
@@ -14,6 +17,7 @@ contract romBank {
 
   function deposit() payable public {
  
+    etherBalanceOf[msg.sender] = msg.value;
   }
 
   function withdraw() public {
