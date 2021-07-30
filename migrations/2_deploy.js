@@ -1,21 +1,19 @@
 const Token = artifacts.require("Token");
-const romBank = artifacts.require("romBank")
+const romBank = artifacts.require("romBank");
 
 module.exports = async function (deployer) {
-    //deploy
+    //deploy Token
     await deployer.deploy(Token)
 
-    //assign token to varaible to get address
+    //assign token into variable to get it's address
     const token = await Token.deployed()
 
-    //pass token address for romBank contract to allow future minting
+    //pass token address for romBank contract(for future minting)
     await deployer.deploy(romBank, token.address)
 
-    //assign rombank contract into varaible to get its address
-    const romBank = await romBank.deployed()
+    //assign dBank contract into variable to get it's address
+    const rombank = await romBank.deployed()
 
-    //change the minter or token owner from who deploys romBank
-    await token.passMinterRole(romBank.address)
-
-
+    //change token's owner/minter from deployer to dBank
+    await token.passMinterRole(rombank.address)
 };

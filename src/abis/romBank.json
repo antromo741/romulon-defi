@@ -29,14 +29,16 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
       "name": "deposit",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [],
@@ -50,7 +52,8 @@
       "name": "borrow",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [],
@@ -66,38 +69,38 @@
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "93:455:1:-:0;;;261:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;308:6;300:5;;:14;;;;;;;;;;;;;;;;;;261:59;93:455;;;;;;",
-  "deployedSourceMap": "93:455:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;162:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;420:36;;;;;;;;;;;;;:::i;:::-;;509;;;;;;;;;;;;;:::i;:::-;;326:88;;;:::i;:::-;;462:41;;;:::i;:::-;;162:46;;;;;;;;;;;;;;;;;:::o;420:36::-;:::o;509:::-;:::o;326:88::-;399:9;370:14;:26;385:10;370:26;;;;;;;;;;;;;;;:38;;;;326:88::o;462:41::-;:::o",
+  "sourceMap": "93:455:2:-:0;;;261:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;308:6;300:5;;:14;;;;;;;;;;;;;;;;;;261:59;93:455;;;;;;",
+  "deployedSourceMap": "93:455:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;162:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;420:36;;;;;;;;;;;;;:::i;:::-;;509;;;;;;;;;;;;;:::i;:::-;;326:88;;;:::i;:::-;;462:41;;;:::i;:::-;;162:46;;;;;;;;;;;;;;;;;:::o;420:36::-;:::o;509:::-;:::o;326:88::-;399:9;370:14;:26;385:10;370:26;;;;;;;;;;;;;;;:38;;;;326:88::o;462:41::-;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.6.0 <0.8.0;\r\n\r\nimport \"./Token.sol\";\r\n\r\ncontract romBank {\r\n  //state variable\r\n  Token private token;\r\n \r\n  mapping(address => uint) public etherBalanceOf;\r\n\r\n\r\n  //token in constructor is local variable\r\n  constructor(Token _token) public {\r\n   token = _token;\r\n  }\r\n\r\n  function deposit() payable public {\r\n \r\n    etherBalanceOf[msg.sender] = msg.value;\r\n  }\r\n\r\n  function withdraw() public {\r\n \r\n  }\r\n\r\n  function borrow() payable public {\r\n\r\n  }\r\n\r\n  function payOff() public {\r\n   \r\n  }\r\n}",
   "sourcePath": "/mnt/c/Users/antho/Coding Projects/romulon-defi/romulon-defi/src/contracts/romBank.sol",
   "ast": {
     "absolutePath": "/mnt/c/Users/antho/Coding Projects/romulon-defi/romulon-defi/src/contracts/romBank.sol",
     "exportedSymbols": {
       "Context": [
-        142
+        175
       ],
       "ERC20": [
-        841
+        874
       ],
       "IERC20": [
-        919
+        952
       ],
       "SafeMath": [
-        338
+        371
       ],
       "Token": [
-        75
+        108
       ],
       "romBank": [
-        119
+        152
       ]
     },
-    "id": 120,
+    "id": 153,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 77,
+        "id": 110,
         "literals": [
           "solidity",
           ">=",
@@ -108,16 +111,16 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:31:1"
+        "src": "33:31:2"
       },
       {
         "absolutePath": "/mnt/c/Users/antho/Coding Projects/romulon-defi/romulon-defi/src/contracts/Token.sol",
         "file": "./Token.sol",
-        "id": 78,
+        "id": 111,
         "nodeType": "ImportDirective",
-        "scope": 120,
-        "sourceUnit": 76,
-        "src": "68:21:1",
+        "scope": 153,
+        "sourceUnit": 109,
+        "src": "68:21:2",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -127,35 +130,35 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 119,
+        "id": 152,
         "linearizedBaseContracts": [
-          119
+          152
         ],
         "name": "romBank",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 80,
+            "id": 113,
             "mutability": "mutable",
             "name": "token",
             "nodeType": "VariableDeclaration",
-            "scope": 119,
-            "src": "135:19:1",
+            "scope": 152,
+            "src": "135:19:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_Token_$75",
+              "typeIdentifier": "t_contract$_Token_$108",
               "typeString": "contract Token"
             },
             "typeName": {
-              "id": 79,
+              "id": 112,
               "name": "Token",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 75,
-              "src": "135:5:1",
+              "referencedDeclaration": 108,
+              "src": "135:5:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Token_$75",
+                "typeIdentifier": "t_contract$_Token_$108",
                 "typeString": "contract Token"
               }
             },
@@ -164,12 +167,12 @@
           {
             "constant": false,
             "functionSelector": "179fc99f",
-            "id": 84,
+            "id": 117,
             "mutability": "mutable",
             "name": "etherBalanceOf",
             "nodeType": "VariableDeclaration",
-            "scope": 119,
-            "src": "162:46:1",
+            "scope": 152,
+            "src": "162:46:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -177,28 +180,28 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 83,
+              "id": 116,
               "keyType": {
-                "id": 81,
+                "id": 114,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "170:7:1",
+                "src": "170:7:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "162:24:1",
+              "src": "162:24:2",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 82,
+                "id": 115,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
-                "src": "181:4:1",
+                "src": "181:4:2",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
@@ -209,155 +212,155 @@
           },
           {
             "body": {
-              "id": 93,
+              "id": 126,
               "nodeType": "Block",
-              "src": "294:26:1",
+              "src": "294:26:2",
               "statements": [
                 {
                   "expression": {
-                    "id": 91,
+                    "id": 124,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 89,
+                      "id": 122,
                       "name": "token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 80,
-                      "src": "300:5:1",
+                      "referencedDeclaration": 113,
+                      "src": "300:5:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Token_$75",
+                        "typeIdentifier": "t_contract$_Token_$108",
                         "typeString": "contract Token"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 90,
+                      "id": 123,
                       "name": "_token",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 86,
-                      "src": "308:6:1",
+                      "referencedDeclaration": 119,
+                      "src": "308:6:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Token_$75",
+                        "typeIdentifier": "t_contract$_Token_$108",
                         "typeString": "contract Token"
                       }
                     },
-                    "src": "300:14:1",
+                    "src": "300:14:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Token_$75",
+                      "typeIdentifier": "t_contract$_Token_$108",
                       "typeString": "contract Token"
                     }
                   },
-                  "id": 92,
+                  "id": 125,
                   "nodeType": "ExpressionStatement",
-                  "src": "300:14:1"
+                  "src": "300:14:2"
                 }
               ]
             },
-            "id": 94,
+            "id": 127,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 87,
+              "id": 120,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 86,
+                  "id": 119,
                   "mutability": "mutable",
                   "name": "_token",
                   "nodeType": "VariableDeclaration",
-                  "scope": 94,
-                  "src": "273:12:1",
+                  "scope": 127,
+                  "src": "273:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Token_$75",
+                    "typeIdentifier": "t_contract$_Token_$108",
                     "typeString": "contract Token"
                   },
                   "typeName": {
-                    "id": 85,
+                    "id": 118,
                     "name": "Token",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 75,
-                    "src": "273:5:1",
+                    "referencedDeclaration": 108,
+                    "src": "273:5:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Token_$75",
+                      "typeIdentifier": "t_contract$_Token_$108",
                       "typeString": "contract Token"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "272:14:1"
+              "src": "272:14:2"
             },
             "returnParameters": {
-              "id": 88,
+              "id": 121,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "294:0:1"
+              "src": "294:0:2"
             },
-            "scope": 119,
-            "src": "261:59:1",
+            "scope": 152,
+            "src": "261:59:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 105,
+              "id": 138,
               "nodeType": "Block",
-              "src": "360:54:1",
+              "src": "360:54:2",
               "statements": [
                 {
                   "expression": {
-                    "id": 103,
+                    "id": 136,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 97,
+                        "id": 130,
                         "name": "etherBalanceOf",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 84,
-                        "src": "370:14:1",
+                        "referencedDeclaration": 117,
+                        "src": "370:14:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                           "typeString": "mapping(address => uint256)"
                         }
                       },
-                      "id": 100,
+                      "id": 133,
                       "indexExpression": {
                         "expression": {
-                          "id": 98,
+                          "id": 131,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967281,
-                          "src": "385:3:1",
+                          "src": "385:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 99,
+                        "id": 132,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
-                        "src": "385:10:1",
+                        "src": "385:10:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -368,7 +371,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "370:26:1",
+                      "src": "370:26:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -378,191 +381,191 @@
                     "operator": "=",
                     "rightHandSide": {
                       "expression": {
-                        "id": 101,
+                        "id": 134,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 4294967281,
-                        "src": "399:3:1",
+                        "src": "399:3:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 102,
+                      "id": 135,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "value",
                       "nodeType": "MemberAccess",
-                      "src": "399:9:1",
+                      "src": "399:9:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "370:38:1",
+                    "src": "370:38:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 104,
+                  "id": 137,
                   "nodeType": "ExpressionStatement",
-                  "src": "370:38:1"
+                  "src": "370:38:2"
                 }
               ]
             },
             "functionSelector": "d0e30db0",
-            "id": 106,
+            "id": 139,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "deposit",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 95,
+              "id": 128,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "342:2:1"
+              "src": "342:2:2"
             },
             "returnParameters": {
-              "id": 96,
+              "id": 129,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "360:0:1"
+              "src": "360:0:2"
             },
-            "scope": 119,
-            "src": "326:88:1",
+            "scope": 152,
+            "src": "326:88:2",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 109,
+              "id": 142,
               "nodeType": "Block",
-              "src": "447:9:1",
+              "src": "447:9:2",
               "statements": []
             },
             "functionSelector": "3ccfd60b",
-            "id": 110,
+            "id": 143,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "withdraw",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 107,
+              "id": 140,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "437:2:1"
+              "src": "437:2:2"
             },
             "returnParameters": {
-              "id": 108,
+              "id": 141,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "447:0:1"
+              "src": "447:0:2"
             },
-            "scope": 119,
-            "src": "420:36:1",
+            "scope": 152,
+            "src": "420:36:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 113,
+              "id": 146,
               "nodeType": "Block",
-              "src": "495:8:1",
+              "src": "495:8:2",
               "statements": []
             },
             "functionSelector": "e68d3569",
-            "id": 114,
+            "id": 147,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "borrow",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 111,
+              "id": 144,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "477:2:1"
+              "src": "477:2:2"
             },
             "returnParameters": {
-              "id": 112,
+              "id": 145,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "495:0:1"
+              "src": "495:0:2"
             },
-            "scope": 119,
-            "src": "462:41:1",
+            "scope": 152,
+            "src": "462:41:2",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 117,
+              "id": 150,
               "nodeType": "Block",
-              "src": "534:11:1",
+              "src": "534:11:2",
               "statements": []
             },
             "functionSelector": "3fac68d5",
-            "id": 118,
+            "id": 151,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "payOff",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 115,
+              "id": 148,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "524:2:1"
+              "src": "524:2:2"
             },
             "returnParameters": {
-              "id": 116,
+              "id": 149,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "534:0:1"
+              "src": "534:0:2"
             },
-            "scope": 119,
-            "src": "509:36:1",
+            "scope": 152,
+            "src": "509:36:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 120,
-        "src": "93:455:1"
+        "scope": 153,
+        "src": "93:455:2"
       }
     ],
-    "src": "33:515:1"
+    "src": "33:515:2"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/mnt/c/Users/antho/Coding Projects/romulon-defi/romulon-defi/src/contracts/romBank.sol",
       "exportedSymbols": {
         "Context": [
-          142
+          175
         ],
         "ERC20": [
-          841
+          874
         ],
         "IERC20": [
-          919
+          952
         ],
         "SafeMath": [
-          338
+          371
         ],
         "Token": [
-          75
+          108
         ],
         "romBank": [
-          119
+          152
         ]
       },
       "license": "MIT"
@@ -580,24 +583,24 @@
             ".0"
           ]
         },
-        "id": 77,
+        "id": 110,
         "name": "PragmaDirective",
-        "src": "33:31:1"
+        "src": "33:31:2"
       },
       {
         "attributes": {
-          "SourceUnit": 76,
+          "SourceUnit": 109,
           "absolutePath": "/mnt/c/Users/antho/Coding Projects/romulon-defi/romulon-defi/src/contracts/Token.sol",
           "file": "./Token.sol",
-          "scope": 120,
+          "scope": 153,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 78,
+        "id": 111,
         "name": "ImportDirective",
-        "src": "68:21:1"
+        "src": "68:21:2"
       },
       {
         "attributes": {
@@ -611,10 +614,10 @@
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            119
+            152
           ],
           "name": "romBank",
-          "scope": 120
+          "scope": 153
         },
         "children": [
           {
@@ -622,7 +625,7 @@
               "constant": false,
               "mutability": "mutable",
               "name": "token",
-              "scope": 119,
+              "scope": 152,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract Token",
@@ -632,17 +635,17 @@
               {
                 "attributes": {
                   "name": "Token",
-                  "referencedDeclaration": 75,
+                  "referencedDeclaration": 108,
                   "type": "contract Token"
                 },
-                "id": 79,
+                "id": 112,
                 "name": "UserDefinedTypeName",
-                "src": "135:5:1"
+                "src": "135:5:2"
               }
             ],
-            "id": 80,
+            "id": 113,
             "name": "VariableDeclaration",
-            "src": "135:19:1"
+            "src": "135:19:2"
           },
           {
             "attributes": {
@@ -650,7 +653,7 @@
               "functionSelector": "179fc99f",
               "mutability": "mutable",
               "name": "etherBalanceOf",
-              "scope": 119,
+              "scope": 152,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => uint256)",
@@ -667,28 +670,28 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 81,
+                    "id": 114,
                     "name": "ElementaryTypeName",
-                    "src": "170:7:1"
+                    "src": "170:7:2"
                   },
                   {
                     "attributes": {
                       "name": "uint",
                       "type": "uint256"
                     },
-                    "id": 82,
+                    "id": 115,
                     "name": "ElementaryTypeName",
-                    "src": "181:4:1"
+                    "src": "181:4:2"
                   }
                 ],
-                "id": 83,
+                "id": 116,
                 "name": "Mapping",
-                "src": "162:24:1"
+                "src": "162:24:2"
               }
             ],
-            "id": 84,
+            "id": 117,
             "name": "VariableDeclaration",
-            "src": "162:46:1"
+            "src": "162:46:2"
           },
           {
             "attributes": {
@@ -699,7 +702,7 @@
                 null
               ],
               "name": "",
-              "scope": 119,
+              "scope": 152,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -712,7 +715,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_token",
-                      "scope": 94,
+                      "scope": 127,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract Token",
@@ -722,22 +725,22 @@
                       {
                         "attributes": {
                           "name": "Token",
-                          "referencedDeclaration": 75,
+                          "referencedDeclaration": 108,
                           "type": "contract Token"
                         },
-                        "id": 85,
+                        "id": 118,
                         "name": "UserDefinedTypeName",
-                        "src": "273:5:1"
+                        "src": "273:5:2"
                       }
                     ],
-                    "id": 86,
+                    "id": 119,
                     "name": "VariableDeclaration",
-                    "src": "273:12:1"
+                    "src": "273:12:2"
                   }
                 ],
-                "id": 87,
+                "id": 120,
                 "name": "ParameterList",
-                "src": "272:14:1"
+                "src": "272:14:2"
               },
               {
                 "attributes": {
@@ -746,9 +749,9 @@
                   ]
                 },
                 "children": [],
-                "id": 88,
+                "id": 121,
                 "name": "ParameterList",
-                "src": "294:0:1"
+                "src": "294:0:2"
               },
               {
                 "children": [
@@ -769,46 +772,46 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 80,
+                              "referencedDeclaration": 113,
                               "type": "contract Token",
                               "value": "token"
                             },
-                            "id": 89,
+                            "id": 122,
                             "name": "Identifier",
-                            "src": "300:5:1"
+                            "src": "300:5:2"
                           },
                           {
                             "attributes": {
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 86,
+                              "referencedDeclaration": 119,
                               "type": "contract Token",
                               "value": "_token"
                             },
-                            "id": 90,
+                            "id": 123,
                             "name": "Identifier",
-                            "src": "308:6:1"
+                            "src": "308:6:2"
                           }
                         ],
-                        "id": 91,
+                        "id": 124,
                         "name": "Assignment",
-                        "src": "300:14:1"
+                        "src": "300:14:2"
                       }
                     ],
-                    "id": 92,
+                    "id": 125,
                     "name": "ExpressionStatement",
-                    "src": "300:14:1"
+                    "src": "300:14:2"
                   }
                 ],
-                "id": 93,
+                "id": 126,
                 "name": "Block",
-                "src": "294:26:1"
+                "src": "294:26:2"
               }
             ],
-            "id": 94,
+            "id": 127,
             "name": "FunctionDefinition",
-            "src": "261:59:1"
+            "src": "261:59:2"
           },
           {
             "attributes": {
@@ -820,7 +823,7 @@
                 null
               ],
               "name": "deposit",
-              "scope": 119,
+              "scope": 152,
               "stateMutability": "payable",
               "virtual": false,
               "visibility": "public"
@@ -833,9 +836,9 @@
                   ]
                 },
                 "children": [],
-                "id": 95,
+                "id": 128,
                 "name": "ParameterList",
-                "src": "342:2:1"
+                "src": "342:2:2"
               },
               {
                 "attributes": {
@@ -844,9 +847,9 @@
                   ]
                 },
                 "children": [],
-                "id": 96,
+                "id": 129,
                 "name": "ParameterList",
-                "src": "360:0:1"
+                "src": "360:0:2"
               },
               {
                 "children": [
@@ -876,13 +879,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 84,
+                                  "referencedDeclaration": 117,
                                   "type": "mapping(address => uint256)",
                                   "value": "etherBalanceOf"
                                 },
-                                "id": 97,
+                                "id": 130,
                                 "name": "Identifier",
-                                "src": "370:14:1"
+                                "src": "370:14:2"
                               },
                               {
                                 "attributes": {
@@ -903,19 +906,19 @@
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 98,
+                                    "id": 131,
                                     "name": "Identifier",
-                                    "src": "385:3:1"
+                                    "src": "385:3:2"
                                   }
                                 ],
-                                "id": 99,
+                                "id": 132,
                                 "name": "MemberAccess",
-                                "src": "385:10:1"
+                                "src": "385:10:2"
                               }
                             ],
-                            "id": 100,
+                            "id": 133,
                             "name": "IndexAccess",
-                            "src": "370:26:1"
+                            "src": "370:26:2"
                           },
                           {
                             "attributes": {
@@ -936,34 +939,34 @@
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 101,
+                                "id": 134,
                                 "name": "Identifier",
-                                "src": "399:3:1"
+                                "src": "399:3:2"
                               }
                             ],
-                            "id": 102,
+                            "id": 135,
                             "name": "MemberAccess",
-                            "src": "399:9:1"
+                            "src": "399:9:2"
                           }
                         ],
-                        "id": 103,
+                        "id": 136,
                         "name": "Assignment",
-                        "src": "370:38:1"
+                        "src": "370:38:2"
                       }
                     ],
-                    "id": 104,
+                    "id": 137,
                     "name": "ExpressionStatement",
-                    "src": "370:38:1"
+                    "src": "370:38:2"
                   }
                 ],
-                "id": 105,
+                "id": 138,
                 "name": "Block",
-                "src": "360:54:1"
+                "src": "360:54:2"
               }
             ],
-            "id": 106,
+            "id": 139,
             "name": "FunctionDefinition",
-            "src": "326:88:1"
+            "src": "326:88:2"
           },
           {
             "attributes": {
@@ -975,7 +978,7 @@
                 null
               ],
               "name": "withdraw",
-              "scope": 119,
+              "scope": 152,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -988,9 +991,9 @@
                   ]
                 },
                 "children": [],
-                "id": 107,
+                "id": 140,
                 "name": "ParameterList",
-                "src": "437:2:1"
+                "src": "437:2:2"
               },
               {
                 "attributes": {
@@ -999,9 +1002,9 @@
                   ]
                 },
                 "children": [],
-                "id": 108,
+                "id": 141,
                 "name": "ParameterList",
-                "src": "447:0:1"
+                "src": "447:0:2"
               },
               {
                 "attributes": {
@@ -1010,14 +1013,14 @@
                   ]
                 },
                 "children": [],
-                "id": 109,
+                "id": 142,
                 "name": "Block",
-                "src": "447:9:1"
+                "src": "447:9:2"
               }
             ],
-            "id": 110,
+            "id": 143,
             "name": "FunctionDefinition",
-            "src": "420:36:1"
+            "src": "420:36:2"
           },
           {
             "attributes": {
@@ -1029,7 +1032,7 @@
                 null
               ],
               "name": "borrow",
-              "scope": 119,
+              "scope": 152,
               "stateMutability": "payable",
               "virtual": false,
               "visibility": "public"
@@ -1042,9 +1045,9 @@
                   ]
                 },
                 "children": [],
-                "id": 111,
+                "id": 144,
                 "name": "ParameterList",
-                "src": "477:2:1"
+                "src": "477:2:2"
               },
               {
                 "attributes": {
@@ -1053,9 +1056,9 @@
                   ]
                 },
                 "children": [],
-                "id": 112,
+                "id": 145,
                 "name": "ParameterList",
-                "src": "495:0:1"
+                "src": "495:0:2"
               },
               {
                 "attributes": {
@@ -1064,14 +1067,14 @@
                   ]
                 },
                 "children": [],
-                "id": 113,
+                "id": 146,
                 "name": "Block",
-                "src": "495:8:1"
+                "src": "495:8:2"
               }
             ],
-            "id": 114,
+            "id": 147,
             "name": "FunctionDefinition",
-            "src": "462:41:1"
+            "src": "462:41:2"
           },
           {
             "attributes": {
@@ -1083,7 +1086,7 @@
                 null
               ],
               "name": "payOff",
-              "scope": 119,
+              "scope": 152,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -1096,9 +1099,9 @@
                   ]
                 },
                 "children": [],
-                "id": 115,
+                "id": 148,
                 "name": "ParameterList",
-                "src": "524:2:1"
+                "src": "524:2:2"
               },
               {
                 "attributes": {
@@ -1107,9 +1110,9 @@
                   ]
                 },
                 "children": [],
-                "id": 116,
+                "id": 149,
                 "name": "ParameterList",
-                "src": "534:0:1"
+                "src": "534:0:2"
               },
               {
                 "attributes": {
@@ -1118,32 +1121,40 @@
                   ]
                 },
                 "children": [],
-                "id": 117,
+                "id": 150,
                 "name": "Block",
-                "src": "534:11:1"
+                "src": "534:11:2"
               }
             ],
-            "id": 118,
+            "id": 151,
             "name": "FunctionDefinition",
-            "src": "509:36:1"
+            "src": "509:36:2"
           }
         ],
-        "id": 119,
+        "id": 152,
         "name": "ContractDefinition",
-        "src": "93:455:1"
+        "src": "93:455:2"
       }
     ],
-    "id": 120,
+    "id": 153,
     "name": "SourceUnit",
-    "src": "33:515:1"
+    "src": "33:515:2"
   },
   "compiler": {
     "name": "solc",
     "version": "0.7.6+commit.7338295f.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xD4d546dbD0E9e483E21b46c33673E0C6A411E53b",
+      "transactionHash": "0xc9f49e26251b45f559a40644347bdde5b759b747f1f2345b45c43127f8feea14"
+    }
+  },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-30T21:08:22.459Z",
+  "updatedAt": "2021-07-30T21:38:25.845Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
