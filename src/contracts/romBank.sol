@@ -8,7 +8,7 @@ contract romBank {
   Token private token;
  
   mapping(address => uint) public etherBalanceOf;
-
+  mapping(address => uint) public depositStart;
 
   //token in constructor is local variable
   constructor(Token _token) public {
@@ -20,6 +20,8 @@ contract romBank {
   function deposit() payable public {
 
     etherBalanceOf[msg.sender] = etherBalanceOf[msg.sender] + msg.value;
+    depositStart[msg.sender] = depositStart[msg.sender] + block.timestamp;
+
 
   }
 
