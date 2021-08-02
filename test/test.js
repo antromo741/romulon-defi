@@ -52,25 +52,25 @@ contract('romBank', ([deployer, user]) => {
 
         describe('success', () => {
             beforeEach(async () => {
-                await romBank.deposit({ value: 10 ** 16, from: user }) //0.01 ETH
+                await rombank.deposit({ value: 10 ** 16, from: user }) //0.01 ETH
             })
 
             it('balance should increase', async () => {
-                expect(Number(await romBank.etherBalanceOf(user))).to.eq(10 ** 16)
+                expect(Number(await rombank.etherBalanceOf(user))).to.eq(10 ** 16)
             })
 
             it('deposit time should > 0', async () => {
-                expect(Number(await romBank.depositStart(user))).to.be.above(0)
+                expect(Number(await rombank.depositStart(user))).to.be.above(0)
             })
 
             it('deposit status should eq true', async () => {
-                expect(await romBank.isDeposited(user)).to.eq(true)
+                expect(await rombank.isDeposited(user)).to.eq(true)
             })
         })
 
         describe('failure', () => {
             it('depositing should be rejected', async () => {
-                await romBank.deposit({ value: 10 ** 15, from: user }).should.be.rejectedWith(EVM_REVERT) //to small amount
+                await rombank.deposit({ value: 10 ** 15, from: user }).should.be.rejectedWith(EVM_REVERT) //to small amount
             })
         })
     })
@@ -81,17 +81,17 @@ contract('romBank', ([deployer, user]) => {
         describe('success', () => {
 
             beforeEach(async () => {
-                await romBank.deposit({ value: 10 ** 16, from: user }) //0.01 ETH
+                await rombank.deposit({ value: 10 ** 16, from: user }) //0.01 ETH
 
                 await wait(2) //accruing interest
 
                 balance = await web3.eth.getBalance(user)
-                await romBank.withdraw({ from: user })
+                await rombank.withdraw({ from: user })
             })
 
             it('balances should decrease', async () => {
                 expect(Number(await web3.eth.getBalance(rombank.address))).to.eq(0)
-                expect(Number(await romBank.etherBalanceOf(user))).to.eq(0)
+                expect(Number(await rombank.etherBalanceOf(user))).to.eq(0)
             })
 
             it('user should receive ether back', async () => {

@@ -12,12 +12,15 @@ contract romBank {
 
   //token in constructor is local variable
   constructor(Token _token) public {
-   token = _token;
+
+    token = _token;
+  
   }
 
   function deposit() payable public {
- 
-    etherBalanceOf[msg.sender] = msg.value;
+
+    etherBalanceOf[msg.sender] = etherBalanceOf[msg.sender] + msg.value;
+
   }
 
   function withdraw() public {
