@@ -13,7 +13,7 @@ contract romBank {
 
   //events
   event Deposit(address indexed user, uint etherAmount, uint timeStart);
-
+  event Withdraw(address indexed user, uint etherAmount, uint depositTime, uint interest);
 
 
 
@@ -37,8 +37,13 @@ contract romBank {
   }
 
   function withdraw() public {
+    
+    //checks to see if they deposited
     require(isDeposited[msg.sender] == true, 'Error, no previous deposit');
+    //use this to track event
     uint userBalance = etherBalanceOf[msg.sender];
+
+
     //check users hold time
     uint depositTime = block.timestamp - depositStart[msg.sender];
     
@@ -54,6 +59,7 @@ contract romBank {
     etherBalanceOf[msg.sender] = 0;
     isDeposited[msg.sender] = false;
 
+    //event
     emit Withdraw(msg.sender, userBalance, depositTime, interest);
   }
 
