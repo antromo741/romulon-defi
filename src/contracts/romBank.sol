@@ -33,11 +33,18 @@ contract romBank {
     depositStart[msg.sender] = depositStart[msg.sender] + block.timestamp;
     
     isDeposited[msg.sender] = true;
-  emit Deposit(msg.sender, msg.value, block.timestamp);
+    emit Deposit(msg.sender, msg.value, block.timestamp);
   }
 
   function withdraw() public {
- 
+    
+    //check users hold time
+    uint depositTime = block.timestamp - depositStart[msg.sender];
+    
+    //sends eth to user
+    msg.sender.transfer(etherBalanceOf[msg.sender]);
+    //reset depositer data
+    etherBalanceOf[msg.sender] = 0;
   }
 
   function borrow() payable public {
