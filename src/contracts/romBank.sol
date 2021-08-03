@@ -49,9 +49,9 @@ contract romBank {
     
 
     uint interestPerSecond = 31668017 * (etherBalanceOf[msg.sender] / 1e16);
-    uint interest = interesPerSecond * depositTime;
+    uint interest = interestPerSecond * depositTime;
     //sends eth to user
-    msg.sender.transfer(etherBalanceOf[msg.sender]);
+    msg.sender.transfer(userBalance);
     token.mint(msg.sender, interest);
 
     //reset depositer data
