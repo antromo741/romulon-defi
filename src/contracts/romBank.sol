@@ -26,12 +26,14 @@ contract romBank {
 
   function deposit() payable public {
 
+    require(isDeposited[msg.sender] == false, 'Error deposit already active');
+    require(msg.value>=1e16, 'Error, deposit must be >= 0.01 ETH');
     etherBalanceOf[msg.sender] = etherBalanceOf[msg.sender] + msg.value;
     
     depositStart[msg.sender] = depositStart[msg.sender] + block.timestamp;
     
     isDeposited[msg.sender] = true;
-
+  emit Deposit(msg.sender, msg.value, block.timestamp);
   }
 
   function withdraw() public {
