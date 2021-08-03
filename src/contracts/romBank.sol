@@ -38,7 +38,7 @@ contract romBank {
 
   function withdraw() public {
     require(isDeposited[msg.sender] == true, 'Error, no previous deposit');
-
+    uint userBalance = etherBalanceOf[msg.sender];
     //check users hold time
     uint depositTime = block.timestamp - depositStart[msg.sender];
     
@@ -53,6 +53,8 @@ contract romBank {
     depositStart[msg.sender] = 0;
     etherBalanceOf[msg.sender] = 0;
     isDeposited[msg.sender] = false;
+
+    emit Withdraw(msg.sender, userBalance, depositTime, interest);
   }
 
   function borrow() payable public {
