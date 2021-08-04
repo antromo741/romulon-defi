@@ -55,9 +55,14 @@ class App extends Component {
   }
 
   async withdraw(e) {
-    //prevent button from default click
-    //check if this.state.dbank is ok
-    //in try block call dBank withdraw();
+    if (this.state.rombank !== 'undefined') {
+      try {
+
+        await this.state.rombank.methods.withdraw().send({ from: this.state.account })
+      } catch (e) {
+        console.log('Error, withdraw: ', e)
+      }
+    }
   }
 
   constructor(props) {
