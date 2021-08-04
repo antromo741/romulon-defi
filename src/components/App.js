@@ -43,8 +43,15 @@ class App extends Component {
   }
 
   async deposit(amount) {
-    //check if this.state.dbank is ok
-    //in try block call dBank deposit();
+    console.log(amount)
+      if(this.state.rombank!=='undefined'){
+        try{
+      
+      await this.state.rombank.methods.deposit().send({value: amount.toString(), from: this.state.account})
+      } catch (e) {
+        console.log('Error, deposit: ', e)
+      }
+    }
   }
 
   async withdraw(e) {
@@ -98,7 +105,9 @@ class App extends Component {
                       (1 deposit is possible at the time)
                       <br></br>
                       <form onSubmit={(e) => {
-
+                        e.preventDefault()
+                        let amount = this.depositAmount.value
+                        amount = amount * 10**18 //comeback and use toWei()
                       }}>
                         <div className='form-group mr-sm-2'>
                           <br></br>
