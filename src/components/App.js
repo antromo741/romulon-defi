@@ -31,11 +31,15 @@ class App extends Component {
       const token = new web3.eth.Contract(Token.abi, Token.networks[netId].address)
       const rombank = new web3.eth.Contract(romBank.abi, romBank.networks[netId].address)
       const romBankAddress = romBank.networks[netId].address
+      //Need to elaborate on this part to figure out interest"
+      const tokenBalance = await token.methods.balanceOf(this.state.account).call()
+      console.log(web3.utils.fromWei(tokenBalance))
       this.setState({token: token, romBank: romBank, romBankAddress: romBankAddress})
       } catch (e) {
         console.log('Error', e)
         window.alert('Contracts not deployed to the current network')
       }
+
     } else {
       window.alert('Please install MetaMask, Import an account from Ganache and add the Ganache private Network')
     }
