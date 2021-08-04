@@ -2,7 +2,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import React, { Component } from 'react';
 import romBank from '../abis/romBank.json';
 import Token from '../abis/Token.json'  ;
-
+import rombank from '../romBank.png';
 import Web3 from 'web3';
 import './App.css';
 
