@@ -92,6 +92,20 @@ class App extends Component {
                     <div>
                       <br></br>
                       How much do you want to deposit?
+                      <br></br>
+                      (min. amount is 0.01 ETH)
+                      <br></br>
+                      (1 deposit is possible at the time)
+                      <br></br>
+                      <form onSubmit={(e) => {
+
+                      }}>
+                        <div className='form-group mr-sm-2'>
+                          <br></br>
+                          <input/>
+                        </div>
+                        <button type ='submit' className='btn btn-primary'>Deposit</button>
+                      </form>
                     </div>
                   </Tab>
                   <Tab eventKey="withdraw" title="Withdraw">
