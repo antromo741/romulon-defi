@@ -128,7 +128,14 @@ class App extends Component {
                   <Tab eventKey="withdraw" title="Withdraw">
                     <div>
                       <br></br>
-                      Do you want to withdraw and take interest?
+                      Do you want to withdraw everything and take interest?
+                      <br></br>
+                      <br></br>
+                      <div>
+                        <button type='submit' className='btn btn-primary' onClick={(e) => this.withdraw(e)}>
+                        WITHDRAW
+                        </button>
+                      </div>
                     </div>
                   </Tab>
                 </Tabs>
