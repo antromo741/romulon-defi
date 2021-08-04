@@ -102,7 +102,15 @@ class App extends Component {
                       }}>
                         <div className='form-group mr-sm-2'>
                           <br></br>
-                          <input/>
+                          <input
+                              className='form-control form-control-md'
+                              id='depositAmount'
+                              placeholder='Amount?'
+                              step="0.01"
+                              type='number'
+                              required
+                              ref={(input) => { this.depositAmount = input }}
+                          />
                         </div>
                         <button type ='submit' className='btn btn-primary'>Deposit</button>
                       </form>
@@ -111,7 +119,7 @@ class App extends Component {
                   <Tab eventKey="withdraw" title="Withdraw">
                     <div>
                       <br></br>
-                      How much do you want to withdraw?
+                      Do you want to withdraw and take interest?
                     </div>
                   </Tab>
                 </Tabs>
