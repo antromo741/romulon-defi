@@ -6,6 +6,8 @@ import Token from '../abis/Token.json'  ;
 import Web3 from 'web3';
 import './App.css';
 
+
+//Add loan options to token
 class App extends Component {
 
   async componentWillMount() {
@@ -31,6 +33,8 @@ class App extends Component {
       const token = new web3.eth.Contract(Token.abi, Token.networks[netId].address)
       const rombank = new web3.eth.Contract(romBank.abi, romBank.networks[netId].address)
       const romBankAddress = romBank.networks[netId].address
+
+      //Also need to add tab to see interest
       //Need to elaborate on this part to figure out interest"
       const tokenBalance = await token.methods.balanceOf(this.state.account).call()
       console.log(web3.utils.fromWei(tokenBalance))
