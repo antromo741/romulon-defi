@@ -1,7 +1,8 @@
 import { Tabs, Tab } from 'react-bootstrap';
+import React, { Component } from 'react';
 import romBank from '../abis/romBank.json';
 import Token from '../abis/Token.json'  ;
-import React, { Component } from 'react';
+
 import Web3 from 'web3';
 import './App.css';
 
@@ -14,7 +15,14 @@ class App extends Component {
   async loadBlockchainData(dispatch) {
 
     //check if MetaMask exists
+    if(typeof window.ethereum!=='undefined'){
 
+      const web3 = new Web3(window.ethereum)
+      const netId = await web3.eth.net.getId()
+      console.log(netId)
+    } else {
+      window.alert('Please install MetaMask, Import an account from Ganache and add the Ganache private Network')
+    }
     //assign to values to variables: web3, netId, accounts
 
     //check if account is detected, then load balance&setStates, elsepush alert
@@ -41,9 +49,9 @@ class App extends Component {
       web3: 'undefined',
       account: '',
       token: null,
-      dbank: null,
+      rombank: null,
       balance: 0,
-      dBankAddress: null
+      romBankAddress: null
     }
   }
 
@@ -57,8 +65,8 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={dbank} className="App-logo" alt="logo" height="32" />
-            <b>dBank</b>
+            <img src={rombank} className="App-logo" alt="logo" height="32" />
+            <b>romBank</b>
           </a>
         </nav>
         <div className="container-fluid mt-5 text-center">
