@@ -27,17 +27,16 @@ class App extends Component {
       } else {
         window.alert('Please login wih MetaMask')
       }
+
+      const token = new web3.eth.Contract(Token.abi, Token.networks[netId].address)
+      const rombank = new web3.eth.Contract(romBank.abi, romBank.networks[netId].address)
+      const romBankAddress = romBank.networks[netId].address
+      this.setState({token: token, romBank: romBank, romBankAddress: romBankAddress})
      
     } else {
       window.alert('Please install MetaMask, Import an account from Ganache and add the Ganache private Network')
     }
-    //assign to values to variables: web3, netId, accounts
-
-    //check if account is detected, then load balance&setStates, elsepush alert
-
-    //in try block load contracts
-
-    //if MetaMask not exists push alert
+   
   }
 
   async deposit(amount) {
