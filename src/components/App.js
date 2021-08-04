@@ -19,7 +19,7 @@ class App extends Component {
 
       const web3 = new Web3(window.ethereum)
       const netId = await web3.eth.net.getId()
-      console.log(netId)
+      const account = await web3.eth.getAccounts()
     } else {
       window.alert('Please install MetaMask, Import an account from Ganache and add the Ganache private Network')
     }
