@@ -11,9 +11,9 @@ module.exports = async function (deployer) {
     //pass token address for romBank contract(for future minting)
     await deployer.deploy(romBank, token.address)
 
-    //assign dBank contract into variable to get it's address
+    //assign romBank contract into variable to get it's address
     const rombank = await romBank.deployed()
 
-    //change token's owner/minter from deployer to dBank
+    //change token's owner/minter from deployer to romBank
     await token.passMinterRole(rombank.address)
 };
