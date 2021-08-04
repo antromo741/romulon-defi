@@ -88,8 +88,18 @@ class App extends Component {
             <main role="main" className="col-lg-12 d-flex text-center">
               <div className="content mr-auto ml-auto">
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                  {/*add Tab deposit*/}
-                  {/*add Tab withdraw*/}
+                  <Tab eventKey="deposit" title="Deposit">
+                    <div>
+                      <br></br>
+                      How much do you want to deposit?
+                    </div>
+                  </Tab>
+                  <Tab eventKey="withdraw" title="Withdraw">
+                    <div>
+                      <br></br>
+                      How much do you want to withdraw?
+                    </div>
+                  </Tab>
                 </Tabs>
               </div>
             </main>
