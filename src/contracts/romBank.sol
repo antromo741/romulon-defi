@@ -7,13 +7,17 @@ contract romBank {
   //state variable
   Token private token;
  
+mapping(address => uint) public depositStart;
   mapping(address => uint) public etherBalanceOf;
-  mapping(address => uint) public depositStart;
-  mapping(address => bool) public isDeposited;
+  mapping(address => uint) public collateralEther;
 
-  //events
+  mapping(address => bool) public isDeposited;
+  mapping(address => bool) public isBorrowed;
+
   event Deposit(address indexed user, uint etherAmount, uint timeStart);
   event Withdraw(address indexed user, uint etherAmount, uint depositTime, uint interest);
+  event Borrow(address indexed user, uint collateralEtherAmount, uint borrowedTokenAmount);
+  event PayOff(address indexed user, uint fee);
 
 
 
